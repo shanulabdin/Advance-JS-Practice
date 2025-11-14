@@ -5,8 +5,8 @@ function max(a, b){
     return b;
   }
 }
-
 console.log(max(9, 6));
+
 
 function isEven(n){
   if (n % 2 === 0){
@@ -15,8 +15,8 @@ function isEven(n){
     return false;
   }
 }
-
 console.log(isEven(3));
+
 
 function fizzBuzz(n){
   if(n % 3 === 0 && n % 5 === 0){
@@ -27,5 +27,19 @@ function fizzBuzz(n){
     return 'Buzz';
   }
 }
-
 console.log(fizzBuzz(15));
+
+
+function countVowels(str){
+  const string = str.toLowerCase();
+  const vowels = 'aeiou';
+  let count = 0;
+
+  for(let i = 0; i < string.length; i++){
+    if(vowels.includes(string[i])){
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVowels('Hello, my name is ShAn,'));
