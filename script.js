@@ -42,4 +42,15 @@ function countVowels(str){
   }
   return count;
 }
-console.log(countVowels('Hello, my name is ShAn,'));
+console.log(countVowels('HELLO, my name is Shan.'));
+
+
+function reverString(str){
+  let reversed = '';
+
+  for(let i = str.length - 1; i > - 1; i--){
+    reversed += str[i];
+  }
+  return reversed;
+}
+console.log(reverString('Hello'));
