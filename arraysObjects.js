@@ -26,3 +26,15 @@ function getEvenNumbers(arr){
   return evenNums;
 }
 console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // [2, 4, 6]
+
+function unique(arr){
+  let uniqueArray = [];
+
+  for(let i = 0; i< arr.length; i++){
+    if(!uniqueArray.includes(arr[i])){
+      uniqueArray.push(arr[i]);
+    }
+  }
+  return uniqueArray;
+}
+console.log(unique([1, 2, 2, 3, 3, 3])); // [1, 2, 3]
