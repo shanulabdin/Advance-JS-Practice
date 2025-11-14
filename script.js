@@ -45,12 +45,12 @@ function countVowels(str){
 console.log(countVowels('HELLO, my name is Shan.'));
 
 
-function reverString(str){
+function reverseString(str){
   let reversed = '';
 
-  for(let i = str.length - 1; i > - 1; i--){
+  for(let i = str.length - 1; i >= 0; i--){
     reversed += str[i];
   }
   return reversed;
 }
-console.log(reverString('Hello'));
+console.log(reverseString('Hello'));
