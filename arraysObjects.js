@@ -40,6 +40,18 @@ function unique(arr){
 console.log(unique([1, 2, 2, 3, 3, 3])); // [1, 2, 3]
 
 
+function maxInArray(arr){
+  let max = arr[0];
+  for(let i = 1; i < arr.length; i++){
+    if(arr[i] > max){
+      max = arr[i];
+    }
+  }
+  return max;
+}
+console.log(maxInArray([3, 10, 6, 2])); // 10
+
+
 function charFrequency(arr){
   let freq = {};
   for(let i = 0; i < arr.length; i++){
