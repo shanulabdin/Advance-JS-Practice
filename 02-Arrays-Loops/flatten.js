@@ -16,3 +16,11 @@ console.log(flatten([1, 2, 3]));
 console.log(flatten([[1, 2], [3, 4]]));
 console.log(flatten([1, [], 2, [3, 4], []]));
 
+// flatten using flat method
+const flatMethod = (arr) => {
+  return arr.flat();
+};
+console.log(flatMethod([1, [2, 3], [4], 5]));
+console.log(flatMethod([1, 2, 3]));
+console.log(flatMethod([[1, 2], [3, 4]]));
+console.log(flatMethod([1, [], 2, [3, 4], []]));
