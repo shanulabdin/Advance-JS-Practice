@@ -30,6 +30,11 @@ console.log(sumArray(list[1]));
 console.log(sumArray(list[2]));
 
 // 5 - sumArray without a for loop
-const array = [1, 2, 3, 4];
-const sumArrayMethod = array.reduce((acc, curr) => acc + curr, 0);
-console.log('sumArrayMethod:', sumArrayMethod)
+// const array = [1, 2, 3, 4];
+// const sumArrayMethod = array.reduce((acc, curr) => acc + curr, 0);
+// console.log('sumArrayMethod:', sumArrayMethod)
+
+function sumArrayMethod(array){
+  return array.reduce((acc, curr) => acc + curr, 0);
+}
+console.log('sumArrayMethod:', sumArrayMethod([1, 2, 3, 4]))
