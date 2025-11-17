@@ -29,4 +29,7 @@ console.log(sumArray(list[0]));
 console.log(sumArray(list[1]));
 console.log(sumArray(list[2]));
 
-// 4
+// 5 - sumArray without a for loop
+const array = [1, 2, 3, 4];
+const sumArrayMethod = array.reduce((acc, curr) => acc + curr, 0);
+console.log('sumArrayMethod:', sumArrayMethod)
