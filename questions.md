@@ -1,25 +1,19 @@
-A. Basics & functions
+### B. Arrays & loops
 
-Max of two numbers
-Write a function max(a, b) that returns the bigger number.
-
-Is even or odd
-isEven(n) → returns true if even, false if odd.
-Bonus: throw an error if n is not a number.
-
-FizzBuzz
-fizzBuzz(n)
-
-Print numbers from 1 to n.
-
-If divisible by 3 → “Fizz”
-
-If divisible by 5 → “Buzz”
-
-If both → “FizzBuzz”
-
-Count vowels in a string
-countVowels(str) → returns how many vowels (a e i o u) are in that string.
-
-Reverse a string (no built-in reverse)
-reverseString(str) → "hello" → "olleh"
+6. **Sum of array**  
+    `sumArray(arr)` → sum of all numbers.
+    
+7. **Find max in array**  
+    `maxInArray(arr)` → largest number.
+    
+8. **Filter even numbers**  
+    `getEvenNumbers(arr)` → returns new array with only even numbers.
+    
+9. **Remove duplicates from array**  
+    `unique(arr)`  
+    Example: `[1, 2, 2, 3, 3, 3]` → `[1, 2, 3]`
+    
+10. **Flatten 1-level nested array**  
+    `flatten(arr)`  
+    Example: `[1, [2, 3], [4], 5]` → `[1, 2, 3, 4, 5]`  
+    (Do it without `.flat()` first)
