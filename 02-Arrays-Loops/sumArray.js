@@ -18,3 +18,13 @@ console.log(sumArray([5]));
 console.log(sumArray([0, 0, 0]));
 console.log(sumArray([0, 1, 2, 3]));
 
+const list = [
+  [1, 2],
+  [5, 5, 5],
+  [10, -3, 2]
+];
+
+console.log(sumArray(list[0]));
+console.log(sumArray(list[1]));
+console.log(sumArray(list[2]));
+
