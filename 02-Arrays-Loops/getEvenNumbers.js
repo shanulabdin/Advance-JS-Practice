@@ -1,5 +1,4 @@
 // getEvenNumbers
-// 1
 function getEvenNumbers(arr){
   let evenNums = [];
   for(let i = 0; i < arr.length; i++){
@@ -15,9 +14,8 @@ console.log(getEvenNumbers([1, 3, 5, 7]));
 console.log(getEvenNumbers([2, 4, 6, 8]));
 
 // getEvenNumbers method
-const evenMethod = (arr) => {
-  return arr.filter(curr => curr % 2 === 0)
-}
+const evenMethod = arr => arr.filter(curr => curr % 2 === 0);
+
 console.log(evenMethod([1, 2, 3, 4, 5, 6]));
 console.log(evenMethod([-3, -2, -1, 0, 1, 2, 3]));
 console.log(evenMethod([1, 3, 5, 7]));
