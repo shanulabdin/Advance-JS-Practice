@@ -12,6 +12,7 @@ function flatten(arr){
 }
 
 console.log(flatten([1, [2, 3], [4], 5]));
+console.log(flatten([1, 2, 3]));
+console.log(flatten([[1, 2], [3, 4]]));
+console.log(flatten([1, [], 2, [3, 4], []]));
 
-const nested = [1, [2, 3], [4], 5];
-console.log(Array.isArray(nested[3]))
