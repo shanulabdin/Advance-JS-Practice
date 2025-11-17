@@ -24,3 +24,18 @@ console.log(flatMethod([1, [2, 3], [4], 5]));
 console.log(flatMethod([1, 2, 3]));
 console.log(flatMethod([[1, 2], [3, 4]]));
 console.log(flatMethod([1, [], 2, [3, 4], []]));
+
+
+// flatten using reduce method
+const flatReduce = (arr) => {
+  return arr.reduce((acc = [], curr) => {
+    if(Array.isArray(curr) === true){
+      acc.push(...curr);
+    } else {acc.push(curr)}
+    return acc;
+  }, [])
+}
+console.log(flatReduce([1, [2, 3], [4], 5]));
+console.log(flatReduce([1, 2, 3]));
+console.log(flatReduce([[1, 2], [3, 4]]));
+console.log(flatReduce([1, [], 2, [3, 4], []]));
