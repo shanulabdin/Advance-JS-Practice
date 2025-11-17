@@ -16,3 +16,11 @@ console.log(maxInArray([1, 5, 2, 9, 3]));
 console.log(maxInArray([-10, -5, -20]));
 console.log(maxInArray([3, 7, 7, 2]));
 console.log(maxInArray([]));
+
+const maxMethod = (arr) => {
+  return arr[0] === undefined ? null : Math.max(...arr);
+}
+console.log(maxMethod([1, 5, 2, 9, 3]));
+console.log(maxMethod([-10, -5, -20]));
+console.log(maxMethod([3, 7, 7, 2]));
+console.log(maxMethod([]));
