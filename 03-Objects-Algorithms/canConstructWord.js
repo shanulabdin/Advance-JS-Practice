@@ -6,17 +6,14 @@ function canConstructWord(letters, word){
   for(let char of letters){
     if(!freq[char]){
       freq[char] = 1;
-    } else if (freq[char]){
+    } else {
       freq[char]++;
     }
   }
 
   for(let char of word){
-    if(!freq[char]){
-      return false;
-    } else if (freq[char]){
-      freq[char]--;
-    }
+    if(!freq[char])return false;
+    freq[char]--;
   }
   return true;
 }
