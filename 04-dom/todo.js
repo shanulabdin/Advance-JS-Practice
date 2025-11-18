@@ -1,21 +1,9 @@
 const input = document.querySelector('#input');
 const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
-
 const delTaskBtns = document.querySelectorAll('.delTaskBtns');
 
-addTaskBtn.addEventListener('click', () => {
-  addTask();
-})
-
-taskContainer.addEventListener('click', (event) => {
-  const clickedItem = event.target;
-  if(clickedItem.classList.value === 'delTaskBtns'){
-    const closestLi = clickedItem.closest('li');
-    closestLi.remove();
-  }
-})
-
+// add items
 function addTask(){
   const taskInput = input.value;
 
@@ -32,3 +20,15 @@ function addTask(){
   input.value = '';
   input.focus();
 }
+addTaskBtn.addEventListener('click', () => {
+  addTask();
+})
+
+// delete items
+taskContainer.addEventListener('click', (event) => {
+  const clickedItem = event.target;
+  if(clickedItem.classList.value === 'delTaskBtns'){
+    const closestLi = clickedItem.closest('li');
+    closestLi.remove();
+  }
+})
