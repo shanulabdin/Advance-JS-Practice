@@ -1,22 +1,15 @@
-### A. Counter App
+### B. Todo List
 
-16. Make a page with:
-    
+17. Basic version:
+- Input field
+- “Add” button
+- List below
 
-- A number display (starts at 0)
-    
-- `+` button
-    
-- `-` button
-    
+When user types and clicks Add:
+- Add a new `<li>` with that text
+- Clear the input
+- Ignore if empty
 
-On click:
-
-- `+` increases number
-    
-- `-` decreases number
-    
-- Number should **never** go below 0
-    
-
-Bonus: Add a **Reset** button.
+Bonus:
+- Add a “Delete” button inside each `<li>` to remove that todo.
+- Add “Done” toggle (line-through text).
