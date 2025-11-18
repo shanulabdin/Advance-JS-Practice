@@ -1,22 +1,14 @@
 function isAnagram(word1, word2){
-  if(word1.length !== word2.length){
-    return false;
-  }
+  if(word1.length !== word2.length) return false;
 
   let freq = {};
 
   for(let char of word1){
-    if (freq[char] === undefined){
-      freq[char] = 1;
-    } else if (freq[char] === 1){
-      freq[char] += 1;
-    }
+    freq[char] = freq[char] === undefined ? 1 : freq[char] + 1;
   }
   
   for(let char of word2){
-    if(freq[char] === undefined || freq[char] === 0){
-      return false;
-    }
+    if(!freq[char]) return false;
     freq[char]--;
   }
   return true;
