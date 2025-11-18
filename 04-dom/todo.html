@@ -43,7 +43,7 @@
       background-color: rgb(190, 190, 190);
     }
     button:active{
-      background-color: rgb(163, 163, 163);
+      background-color: rgb(150, 150, 150);
     }
     input{
       padding: 10px;
@@ -58,7 +58,7 @@
       flex-direction: column;
       width: 100%;
     }
-    .taskCheck{
+    .itemContainer{
       display: flex;
       justify-content: center;
       align-items: center;
@@ -78,6 +78,10 @@
       padding-left: 10px;
       color: black;
     }
+    .completed{
+      text-decoration: line-through;
+      color: rgb(150, 150, 150);
+    }
   </style>
 </head>
 <body>
@@ -89,21 +93,6 @@
     </div>
 
     <ul id="taskContainer" class="taskContainer">
-      <li class="task">
-        <div class="taskCheck">
-          <input class="taskCheck" type="checkbox">
-          <p class="taskTitle">hello</p>
-        </div>
-        <button class="delTaskBtns">-</button>
-      </li>
-
-      <li class="task">
-        <div class="taskCheck">
-          <input class="taskCheck" type="checkbox">
-          <p class="taskTitle">hii</p>
-        </div>
-        <button class="delTaskBtns">-</button>
-      </li>
     </ul>
   </div>
 </body>

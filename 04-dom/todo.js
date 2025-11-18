@@ -2,6 +2,7 @@ const input = document.querySelector('#input');
 const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 const delTaskBtns = document.querySelectorAll('.delTaskBtns');
+const taskChecks = document.querySelectorAll('.taskCheck');
 
 // add items
 function addTask(){
@@ -10,7 +11,7 @@ function addTask(){
   if(!taskInput) return;
   taskContainer.innerHTML +=
     `<li class="task">
-      <div class="taskCheck">
+      <div class="itemContainer">
         <input class="taskCheck" type="checkbox">
         <p class="taskTitle">${taskInput}</p>
       </div>
@@ -30,5 +31,15 @@ taskContainer.addEventListener('click', (event) => {
   if(clickedItem.classList.value === 'delTaskBtns'){
     const closestLi = clickedItem.closest('li');
     closestLi.remove();
+  }
+})
+
+// checking items
+taskContainer.addEventListener('click', (event) => {
+  const clickedItem = event.target;
+  const isCheckBox = clickedItem.classList.contains('taskCheck');
+
+  if(isCheckBox){
+    clickedItem.closest('div').classList.add('completed')
   }
 })
