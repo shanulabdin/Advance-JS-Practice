@@ -6,10 +6,10 @@
 - List below
 
 When user types and clicks Add:
-- Add a new `<li>` with that text
+- Add a new `<div>` with that text
 - Clear the input
 - Ignore if empty
 
 Bonus:
-- Add a “Delete” button inside each `<li>` to remove that todo.
+- Add a “Delete” button inside each `<div>` to remove that todo.
 - Add “Done” toggle (line-through text).

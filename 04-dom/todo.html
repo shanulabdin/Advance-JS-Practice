@@ -14,22 +14,22 @@
       background-color: rgb(70, 70, 70);
       color: white;
       display: flex;
-      justify-content: center;
       align-items: center;
       flex-direction: column;
       font-family: Arial, Helvetica, sans-serif;
       height: 90vh;
+      margin-top: 30px;
     }
-    .counterContainer{
+    .listContainer{
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       margin: 40px;
     }
-    .btnContainer{
+    .addTask{
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
     }
     button{
@@ -45,11 +45,67 @@
     button:active{
       background-color: rgb(163, 163, 163);
     }
+    input{
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      height: 40px;
+    }
+    .taskContainer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+    }
+    .taskCheck{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .taskTitle{
+      margin: 0 10px;
+    }
+    .task{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      margin: 4px 4px;
+      height: 40px;
+      width: 100%;
+      border-radius: 10px;
+      padding-left: 10px;
+      color: black;
+    }
   </style>
 </head>
 <body>
   <h1>ToDo List</h1>
-  
+  <div class="listContainer">
+    <div class="addTask">
+      <input id="input" placeholder="task">
+      <button id="addTaskBtn">+</button>
+    </div>
+
+    <ul id="taskContainer" class="taskContainer">
+      <li class="task">
+        <div class="taskCheck">
+          <input class="taskCheck" type="checkbox">
+          <p class="taskTitle" id="taskTitle">hello</p>
+        </div>
+        <button class="delTaskBtns">-</button>
+      </li>
+
+      <li class="task">
+        <div class="taskCheck">
+          <input class="taskCheck" type="checkbox">
+          <p class="taskTitle" id="taskTitle">hii</p>
+        </div>
+        <button class="delTaskBtns">-</button>
+      </li>
+    </ul>
+  </div>
 </body>
-<script src="todo.html"></script>
+<script src="todo.js"></script>
 </html>
