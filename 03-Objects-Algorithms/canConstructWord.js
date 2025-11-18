@@ -1,13 +1,24 @@
 function canConstructWord(letters, word){
   if(letters.length < word.length) return false;
 
-  const ltrs = letters.split('').sort().join('');
-  const wrds = word.split('').sort().join('');
-  if(ltrs.includes(wrds)){
-    return true;
+  let freq = {};
+
+  for(let char of letters){
+    if(!freq[char]){
+      freq[char] = 1;
+    } else if (freq[char]){
+      freq[char]++;
+    }
   }
-  
-  console.log(ltrs, wrds);
+
+  for(let char of word){
+    if(!freq[char]){
+      return false;
+    } else if (freq[char]){
+      freq[char]--;
+    }
+  }
+  return true;
 }
 
 console.log(canConstructWord("listen", "silent")); 
