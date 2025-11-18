@@ -14,5 +14,15 @@ function isAnagram(word1, word2){
   return true;
 }
 
-console.log(isAnagram('listens', 'silents'));
-console.log(isAnagram('car', 'rat'));
+console.log(isAnagram("listen", "silent"));
+console.log(isAnagram("car", "rat"));  
+console.log(isAnagram("aabb", "bbaa")); 
+console.log(isAnagram("hello", "helloo")); 
+
+function isAgm(a, b){
+  return a.split('').sort().join('') === b.split('').sort().join('');
+}
+console.log(isAgm("listen", "silent"));
+console.log(isAgm("car", "rat"));  
+console.log(isAgm("aabb", "bbaa")); 
+console.log(isAgm("hello", "helloo")); 
