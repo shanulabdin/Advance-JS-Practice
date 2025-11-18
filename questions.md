@@ -1,29 +1,22 @@
-### C. Objects & basic algorithms
+### A. Counter App
 
-11. **Count frequency of characters**  
-    `charFrequency(str)` → returns object.  
-    Example: `"banana"` → `{ b:1, a:3, n:2 }`
-    
-12. **Convert array of objects to map by ID**
+16. Make a page with:
     
 
-```js
-const users = [
-  { id: 1, name: "Ali" },
-  { id: 2, name: "Sara" },
-];
-```
+- A number display (starts at 0)
+    
+- `+` button
+    
+- `-` button
+    
 
-`toMap(users)` →  
-`{ 1: {…}, 2: {…} }`
+On click:
 
-13. **Find user by name**  
-    `findUserByName(users, name)` → returns object or `null`.
+- `+` increases number
     
-14. **Merge two objects** (without using `{...a, ...b}` the first time)  
-    `merge(obj1, obj2)` → new object with properties from both.
+- `-` decreases number
     
-15. **Check if two strings are anagrams**  
-    `"listen"` and `"silent"` → true  
-    `"rat"` and `"car"` → false
+- Number should **never** go below 0
     
+
+Bonus: Add a **Reset** button.
