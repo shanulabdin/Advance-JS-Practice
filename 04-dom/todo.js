@@ -5,7 +5,7 @@ const taskContainer = document.querySelector('#taskContainer');
 const taskCheck = document.querySelector('.taskCheck');
 
 const delTaskBtns = document.querySelectorAll('.delTaskBtns');
-console.log(delTaskBtns)
+
 addTaskBtn.addEventListener('click', () => {
   addTask();
 })
@@ -14,8 +14,6 @@ delTaskBtns.forEach(delTaskBtn => {
   delTaskBtn.addEventListener('click', (event) => {
     const clickedBtn = event.target;
     const parentBox = clickedBtn.parentNode;
-
-    console.log(parentBox);
     parentBox.style.display = 'none';
   })
 })
