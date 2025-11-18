@@ -28,18 +28,14 @@ addTaskBtn.addEventListener('click', () => {
 // delete items
 taskContainer.addEventListener('click', (event) => {
   const clickedItem = event.target;
-  if(clickedItem.classList.value === 'delTaskBtns'){
+  if(clickedItem.classList.contains('delTaskBtns')){
     const closestLi = clickedItem.closest('li');
     closestLi.remove();
   }
-})
 
-// checking items
-taskContainer.addEventListener('click', (event) => {
-  const clickedItem = event.target;
+  // check items
   const isCheckBox = clickedItem.classList.contains('taskCheck');
-
   if(isCheckBox){
-    clickedItem.closest('div').classList.add('completed')
-  }
+    clickedItem.closest('div').classList.toggle('completed')
+  };
 })
