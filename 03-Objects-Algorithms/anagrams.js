@@ -2,6 +2,11 @@ function isAnagram(word1, word2){
   let obj = {};
   let anagram = null;
 
+  if(word1.length !== word2.length){
+    anagram = false;
+    return anagram;
+  }
+
   for(let i = 0; i < word1.length; i++){
     obj[word1[i]] = 1;
   }
