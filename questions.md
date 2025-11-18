@@ -1,19 +1,29 @@
-### B. Arrays & loops
+### C. Objects & basic algorithms
 
-6. **Sum of array**  
-    `sumArray(arr)` → sum of all numbers.
+11. **Count frequency of characters**  
+    `charFrequency(str)` → returns object.  
+    Example: `"banana"` → `{ b:1, a:3, n:2 }`
     
-7. **Find max in array**  
-    `maxInArray(arr)` → largest number.
+12. **Convert array of objects to map by ID**
     
-8. **Filter even numbers**  
-    `getEvenNumbers(arr)` → returns new array with only even numbers.
+
+```js
+const users = [
+  { id: 1, name: "Ali" },
+  { id: 2, name: "Sara" },
+];
+```
+
+`toMap(users)` →  
+`{ 1: {…}, 2: {…} }`
+
+13. **Find user by name**  
+    `findUserByName(users, name)` → returns object or `null`.
     
-9. **Remove duplicates from array**  
-    `unique(arr)`  
-    Example: `[1, 2, 2, 3, 3, 3]` → `[1, 2, 3]`
+14. **Merge two objects** (without using `{...a, ...b}` the first time)  
+    `merge(obj1, obj2)` → new object with properties from both.
     
-10. **Flatten 1-level nested array**  
-    `flatten(arr)`  
-    Example: `[1, [2, 3], [4], 5]` → `[1, 2, 3, 4, 5]`  
-    (Do it without `.flat()` first)
+15. **Check if two strings are anagrams**  
+    `"listen"` and `"silent"` → true  
+    `"rat"` and `"car"` → false
+    
