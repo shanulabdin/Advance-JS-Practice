@@ -1,15 +1,9 @@
-### B. Todo List
+### C. Live Search Filter
 
-17. Basic version:
-- Input field
-- “Add” button
-- List below
+18. Create a list of items in HTML (e.g., names or products).
+    
 
-When user types and clicks Add:
-- Add a new `<div>` with that text
-- Clear the input
-- Ignore if empty
-
-Bonus:
-- Add a “Delete” button inside each `<div>` to remove that todo.
-- Add “Done” toggle (line-through text).
+- Add an input field at top.
+    
+- As the user types, only show list items that **contain** that text (case-insensitive).
+    
