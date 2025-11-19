@@ -3,11 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: rgb(70, 70, 70);
+      color: white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 90vh;
+      margin-top: 30px;
+    }
+    #container{
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+    #input{
+      margin-bottom: 30px;
+      width: 100%;
+      padding: 10px;
+      border-radius: 3px;
+      border: none;
 
+    }
+    #listContainer{
+      list-style-type: circle;
+    }
+    li{
+      margin-top: 4px;
+    }
+  </style>
   <title>Adv JS Practice</title>
 </head>
 <body>
-
+  <h2>Search Filter</h2>
+  <div id="container">
+    <input id="input">
+    <ul id="listContainer">
+      <li class="listItem">Apple iPhone 15</li>
+      <li class="listItem">Samsung Galaxy S24</li>
+      <li class="listItem">Google Pixel 9</li>
+      <li class="listItem">OnePlus Nord 4</li>
+      <li class="listItem">Sony WH-1000XM5 Headphones</li>
+      <li class="listItem">Dell XPS 13 Laptop</li>
+      <li class="listItem">MacBook Air M3</li>
+      <li class="listItem">Logitech MX Master 3S Mouse</li>
+      <li class="listItem">HP Envy Printer</li>
+      <li class="listItem">Nintendo Switch OLED</li>
+      <li class="listItem">PlayStation 5</li>
+      <li class="listItem">Xbox Series X</li>
+      <li class="listItem">Amazon Echo Dot</li>
+      <li class="listItem">JBL Flip 6 Speaker</li>
+      <li class="listItem">Anker Power Bank 20,000mAh</li>
+      <li class="listItem">Canon EOS R10 Camera</li>
+      <li class="listItem">Lenovo ThinkPad X1 Carbon</li>
+      <li class="listItem">Asus ROG Strix Laptop</li>
+      <li class="listItem">Fitbit Charge 6</li>
+      <li class="listItem">Apple Watch Series 10</li>
+    </ul>
+  </div>
 </body>
 <script src="search.js"></script>
 </html>
