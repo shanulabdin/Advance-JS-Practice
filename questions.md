@@ -1,9 +1,10 @@
-### C. Live Search Filter
+### A. Basic fetch with promises
 
-18. Create a list of items in HTML (e.g., names or products).
+19. Write a function `getPosts()` that:
     
 
-- Add an input field at top.
+- uses `fetch`
     
-- As the user types, only show list items that **contain** that text (case-insensitive).
+- logs the list of posts (first 10 only)
     
+- handles errors with `.catch`
