@@ -24,18 +24,18 @@
       align-items: start;
       justify-content: center;
       flex-direction: column;
-      margin-top: 40px;
+      margin-top: 0px;
     }
     #input{
       margin-bottom: 30px;
-      width: 100%;
+      width: 200px;
       padding: 10px;
       border-radius: 3px;
       border: none;
 
     }
     #listContainer{
-      list-style-type: circle;
+      list-style-type: none;
     }
     li{
       margin-top: 4px;
@@ -45,8 +45,8 @@
 </head>
 <body>
   <h2>Search Filter</h2>
+  <input id="input" type="search" placeholder="Type to filter...">
   <div id="container">
-    <input id="input">
     <ul id="listContainer">
       <li class="listItem">Apple iPhone 15</li>
       <li class="listItem">Samsung Galaxy S24</li>
