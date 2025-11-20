@@ -42,3 +42,12 @@ checkAge(15).then(message => {
 }).catch(error => {
   console.log(error);
 })
+
+// level 3 - q 3
+function add(a, b){
+  return a + b;
+}
+const resultPromise = Promise.resolve(add(2, 3));
+resultPromise.then(value => {
+  console.log('result is: ', value);
+})
