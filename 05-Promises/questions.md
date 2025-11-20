@@ -1,28 +1,13 @@
-Level 1 – Basics
-1. Delayed Greeting
-Create a Promise that:
-Uses setTimeout to resolve after 1 second
-Resolves with the message: "Hello after 1 second"
-Use .then() to log the message
+Level 2 – Chaining
+5. Double Then
+Create a Promise that resolves to the number 10
+In the first .then(), return double the value
+In the second .then(), log: "Final value: <value>"
+Expected final log: Final value: 20
 
 
-2. Random Success or Failure
-Create a Promise that:
-Uses Math.random()
-If the number is > 0.5 → resolve with "Success!"
-Else → reject with "Failed!"
-Handle both with .then() and .catch()
-
-
-3. Wrap an Array in a Promise
-Create a Promise that instantly resolves with the array [1, 2, 3]
-In .then():
-Log the array length
-Log the sum of the numbers
-(Hint: you can use Promise.resolve([...]).)
-
-
-4. Simple Error Handling
-Create a Promise that always rejects with: "Oops, error"
-Use .catch() to:
-Log "Caught an error:" and the actual error message
+6. Chain with a Rejection
+Create a Promise that resolves to 3
+In .then() multiply it by 2 and return it
+In the next .then(), throw an error: throw new Error("Something broke")
+Use .catch() at the end to log the error message

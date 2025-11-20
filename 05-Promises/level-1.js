@@ -32,7 +32,7 @@ const arrayPromise = Promise.resolve([1, 2, 3]);
 arrayPromise.then(array => {
   console.log(array.length)
   
-  let sum = array.reduce((acc, curr) => acc + curr)
+  let sum = array.reduce((acc, curr) => acc + curr, 0)
   console.log(sum);
 })
 
