@@ -1,9 +1,6 @@
 // level 2
 // 1
-const chainPromise = new Promise(resolve => {
-  const num = 10;
-  resolve(num);
-});
+const chainPromise = Promise.resolve(10);
 
 chainPromise.then(value => {
   const double = value * 2;
@@ -11,3 +8,5 @@ chainPromise.then(value => {
 }).then(final => {
   console.log("Final value:", final);
 })
+
+// 2
