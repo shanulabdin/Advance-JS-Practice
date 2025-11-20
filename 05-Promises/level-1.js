@@ -27,18 +27,13 @@ randomPromise.then(message => {
 });
 
 // 3
-const arrayPromise = new Promise((resolve => {
-  resolve([1, 2, 3])
-}));
+const arrayPromise = Promise.resolve([1, 2, 3]);
 
 arrayPromise.then(array => {
   console.log(array.length)
   
-  let sum = 0;
-  for(let i = 0; i < array.length; i++){
-    sum += array[i];
-  }
-  console.log(sum)
+  let sum = array.reduce((acc, curr) => acc + curr)
+  console.log(sum);
 })
 
 // 4
