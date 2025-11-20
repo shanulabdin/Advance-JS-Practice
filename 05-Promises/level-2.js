@@ -10,3 +10,12 @@ chainPromise.then(value => {
 })
 
 // 2
+const chainPromise2 = Promise.resolve(3)
+
+chainPromise2.then(value => {
+  return value * 2;
+}).then(() => {
+  throw new Error("Something broke");
+}).catch(error => {
+    console.log(error);
+});
