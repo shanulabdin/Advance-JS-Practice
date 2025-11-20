@@ -26,3 +26,19 @@ finalyPromise2.catch(message => {
 }).finally(() => {
   console.log('Promise finished fail');
 })
+
+// level 3 - q 2
+function checkAge(age){
+  return new Promise((resolve, reject) => {
+    if(age >= 18){
+      resolve('You are an Adult');
+    }else{
+      reject('You are Underage');
+    }
+  })
+}
+checkAge(15).then(message => {
+  console.log(message);
+}).catch(error => {
+  console.log(error);
+})
