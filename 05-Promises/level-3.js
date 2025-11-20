@@ -51,3 +51,20 @@ const resultPromise = Promise.resolve(add(2, 3));
 resultPromise.then(value => {
   console.log('result is: ', value);
 })
+
+// level 3 - q 4
+const p1 = new Promise(resolve => {
+  setTimeout(() => {
+    resolve('first');
+  }, 1000);
+});
+
+const p2 = new Promise(resolve => {
+  setTimeout(() => {
+    resolve('second');
+  }, 2000);
+});
+
+Promise.all([p1, p2]).then(value => {
+  console.log(value);
+})
