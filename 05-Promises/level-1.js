@@ -37,3 +37,9 @@ arrayPromise.then(array => {
   }
   console.log(sum)
 })
+
+const rejectPromise = Promise.reject('Oops, error');
+
+rejectPromise.catch(message => {
+  console.error("Caught an error:", message)
+});
