@@ -3,8 +3,9 @@ async function myFunc(){
 }
 myFunc().then(result => console.log(result));
 
-async function myFunc(){
-  let result = await Promise.resolve(10);
-  console.log(result);
+async function getNumber() {
+  let result = await Promise.resolve(20);
+  console.log(result); // 20
 }
-myFunc()
+
+getNumber();
