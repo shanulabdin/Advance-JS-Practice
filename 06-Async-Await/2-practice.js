@@ -87,3 +87,19 @@ async function run4 (){
   console.log('Post 2 title: ', post2.title)
 }
 run4();
+
+// alternate
+async function parellel() {
+  const urls = [
+    `https://jsonplaceholder.typicode.com/posts/1`,
+    `https://jsonplaceholder.typicode.com/posts/2`
+  ];
+
+  const responses = await Promise.all(urls.map(url => fetch(url)));
+  const posts = await Promise.all(responses.map(response => response.json()));
+
+  console.log('Post 1 title:', posts[0].title);
+  console.log('Post 2 title:', posts[1].title);
+}
+
+parellel();
