@@ -10,22 +10,24 @@ async function getPosts(){
     const res = await fetch(url);
     const posts = await res.json();
     
-    setTimeout(() => {
-      const tenPosts = posts.slice(0, 10);
-      const postTitles = tenPosts.map(p => p.title);
-      
-      showPosts.innerHTML = `<p></p>`;
-      
-      for(let i = 0; i < postTitles.length; i++){
-        const li = document.createElement('li');
-        li.textContent = `
-        ${postTitles[i]}
-        `;
-        showPosts.appendChild(li);
-      }
-    }, 1000);
+    const tenPosts = posts.slice(0, 10);
+    const postTitles = tenPosts.map(p => p.title);
+    const postBody = tenPosts.map(p => p.body);
+    
+    showPosts.innerHTML = `<p></p>`;
+    
+    for(let i = 0; i < postTitles.length; i++){
+      const li = document.createElement('li');
+      li.textContent = `${'Title: ' + postTitles[i]}`;
+
+      const p = document.createElement('p');
+      p.textContent = `${'Body: ' + postBody[i]}`;
+
+      showPosts.appendChild(li);
+      li.appendChild(p);
+    }
   } catch (err) {
-    showPosts.innerHTML = `<p>Something went wrong: ${err}</p>`
+    showPosts.innerHTML = `<p>Something went wrong :(</p>`
     console.log('Something went wrong: ', err);
   }
 }
