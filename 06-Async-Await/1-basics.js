@@ -20,3 +20,13 @@ async function getUser() {
 }
 getUser();
 
+// 4
+async function loadData() {
+  try {
+    const res = await fetch('ahskdjhakjshd.com')
+    const data = await res.json();
+  } catch (err){
+    console.log('Something Went Wrong:', err)
+  }
+}
+loadData();
