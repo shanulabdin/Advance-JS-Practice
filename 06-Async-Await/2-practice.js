@@ -33,3 +33,19 @@ async function run2(){
   console.log(res);
 }
 run2();
+
+// ex 2
+function run3(ms){
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function waitFunc() {
+  await run3(1000);
+  console.log('one');
+
+  await run3(2000);
+  console.log('two');
+
+  await run3(1000);
+  console.log('three')
+}
+waitFunc();
