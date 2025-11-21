@@ -49,3 +49,17 @@ async function waitFunc() {
   console.log('three')
 }
 waitFunc();
+
+// 3
+async function exercise3(){
+  try{
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/1`);
+    const post = await res.json();
+    console.log(post);
+    console.log(post.title);
+    console.log(post.body);
+  } catch(err) {
+    console.log('Something Went wrong!', err)
+  }
+}
+exercise3();
