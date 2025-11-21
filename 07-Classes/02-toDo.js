@@ -4,7 +4,7 @@ class TodoItem {
     this.completed = completed;
   }
   toggle(){
-    return this.completed = !this.completed;
+    this.completed = !this.completed;
   }
   toString(){
     return this.completed ? `[X] ${this.task}` : `[ ] ${this.task}`;
