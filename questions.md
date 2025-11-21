@@ -29,8 +29,8 @@ Create 2 people and call `introduce()`.
 - method: `add(text)`
 - method: `remove(index)`
 - method: `list()` → logs all todos with index
-    
 
 Bonus: Connect this `TodoList` class to your DOM todo app.
 
-<!-- learning git -->
+<!-- learning  -->
+<!-- Git commands  -->
