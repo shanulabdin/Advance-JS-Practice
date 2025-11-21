@@ -1,33 +1,34 @@
-### A. Basic fetch with promises
+### A. Simple class
 
-19. Write a function `getPosts()` that:
-- uses `fetch`
-- logs the list of posts (first 10 only)
-- handles errors with `.catch`
+22. Create a `Person` class:
 
-### B. Convert to async/await
-
-20. Rewrite `getPosts()` like this:
+- properties: `name`, `age`
+- method: `introduce()` → logs `"Hi, I'm NAME and I'm AGE years old."`
     
-
-```js
-async function getPosts() {
-  // use try/catch
-}
-```
-
-Use `await fetch()` and `await response.json()`.
+Create 2 people and call `introduce()`.
 
 ---
 
-### C. Show API data in the DOM
+### B. Todo class
 
-21. On a button click:
+23. Create a `TodoItem` class:
 
-- Fetch posts
-- Show title + body in the page (e.g., in cards or list items)
+- `text` (string)
+- `completed` (boolean, default false)
+- method `toggle()` → flips `completed`
+- method `toString()` → returns e.g. `"[x] buy milk"` or `[ ] buy milk`
+    
 
-Bonus:
-- Show a “Loading…” text while fetching.
-- Hide “Loading…” when done.
-- If error happens, show “Something went wrong”.
+---
+
+### C. TodoList with methods
+
+24. Create a `TodoList` class:
+    
+- property: `items` (array of `TodoItem`)
+- method: `add(text)`
+- method: `remove(index)`
+- method: `list()` → logs all todos with index
+    
+
+Bonus: Connect this `TodoList` class to your DOM todo app.
