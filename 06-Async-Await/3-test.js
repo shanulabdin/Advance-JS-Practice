@@ -1,4 +1,5 @@
 const showPosts = document.querySelector('.showPosts');
+const getPostsBtn = document.querySelector('.getPostsBtn');
 
 async function getPosts(){
   const url = `https://jsonplaceholder.typicode.com/posts`
@@ -22,4 +23,4 @@ async function getPosts(){
     console.log('Something went wrong: ', err);
   }
 }
-getPosts();
+getPostsBtn.addEventListener('click', () => getPosts());
