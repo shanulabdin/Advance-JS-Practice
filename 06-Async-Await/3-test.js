@@ -20,6 +20,7 @@ async function getPosts(){
     }
     
   } catch (err) {
+    showPosts.innerHTML = `<p>Something went wrong: ${err}</p>`
     console.log('Something went wrong: ', err);
   }
 }
