@@ -32,3 +32,5 @@ Create 2 people and call `introduce()`.
     
 
 Bonus: Connect this `TodoList` class to your DOM todo app.
+
+<!-- learning git -->
