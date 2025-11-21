@@ -1,3 +1,5 @@
+const showPosts = document.querySelector('.showPosts');
+
 async function getPosts(){
   const url = `https://jsonplaceholder.typicode.com/posts`
 
@@ -5,7 +7,17 @@ async function getPosts(){
     const res = await fetch(url);
     const posts = await res.json();
 
-    console.log(posts.slice(0, 10));
+    const tenPosts = posts.slice(0, 10);
+    const postTitles = tenPosts.map(p => p.title);
+    
+    for(let i = 0; i < postTitles.length; i++){
+      const li = document.createElement('li');
+      li.textContent = `
+        ${postTitles[i]}
+      `;
+      showPosts.appendChild(li);
+    }
+    
   } catch (err) {
     console.log('Something went wrong: ', err);
   }
