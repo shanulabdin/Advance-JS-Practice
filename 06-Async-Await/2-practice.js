@@ -103,3 +103,20 @@ async function parellel() {
 }
 
 parellel();
+
+// ex 5 Rewrite this code using async/await:
+fetch('https://jsonplaceholder.typicode.com/posts/1')   
+  .then(res => res.json())   
+  .then(data => console.log(data))   
+  .catch(err => console.error(err));
+
+async function rewrite(){
+  try{
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.log('Something went wrong: ', err)
+  }
+}
+rewrite();
