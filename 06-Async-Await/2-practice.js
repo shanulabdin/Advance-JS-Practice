@@ -63,3 +63,27 @@ async function exercise3(){
   }
 }
 exercise3();
+
+// ex 4
+async function parallelOne(){
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/1`);
+  const post = await res.json();
+  return post;
+}
+
+async function parallelTwo() {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/2`);
+  const post = await res.json();
+  return post;
+}
+
+async function run4 (){
+  const [post1, post2] = await Promise.all([
+    parallelOne(),
+    parallelTwo()
+  ]);
+
+  console.log('Post 1 title: ', post1.title)
+  console.log('Post 2 title: ', post2.title)
+}
+run4();
