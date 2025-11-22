@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advance JS Practice</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: rgb(70, 70, 70);
+      color: white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 90vh;
+      margin-top: 30px;
+    }
+    .listContainer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 40px;
+    }
+    .addTask{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button{
+      padding: 5px 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover{
+      background-color: rgb(190, 190, 190);
+    }
+    button:active{
+      background-color: rgb(150, 150, 150);
+    }
+    input{
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      height: 40px;
+    }
+    .taskContainer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+    }
+    .itemContainer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .taskTitle{
+      margin: 0 10px;
+    }
+    .task{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      margin: 4px 4px;
+      height: 40px;
+      width: 100%;
+      border-radius: 10px;
+      padding-left: 10px;
+      color: black;
+    }
+    .completed{
+      text-decoration: line-through;
+      color: rgb(150, 150, 150);
+    }
+  </style>
+</head>
+<body>
+  <h1>ToDo List</h1>
+  <div class="listContainer">
+    <div class="addTask">
+      <input id="taskInput" placeholder="task">
+      <button id="addTaskBtn">+</button>
+    </div>
+
+    <ul id="taskContainer" class="taskContainer">
+      <li class="task">
+        <div class="itemContainer">
+          <input class="taskCheck" type="checkbox">
+          <p class="taskTitle">hello</p>
+        </div>
+        <button class="delTaskBtns">-</button>
+      </li>
+      
+      <li class="task">
+        <div class="itemContainer">
+          <input class="taskCheck" type="checkbox">
+          <p class="taskTitle">hiii</p>
+        </div>
+        <button class="delTaskBtns">-</button>
+      </li>
+    </ul>
+  </div>
+</body>
+<script src="04-DOM.js"></script>
+</html>
