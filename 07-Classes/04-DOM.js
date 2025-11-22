@@ -5,17 +5,19 @@ const taskContainer = document.querySelector('#taskContainer');
 
 // add task function
 function addTask(){
-  const inputText = taskInput.value;
+  const inputText = taskInput.value.trim();
 
-  taskContainer.innerHTML += `
+  if(inputText !== ''){
+    taskContainer.innerHTML += `
     <li class="task">
-      <div class="itemContainer">
-        <input class="taskCheck" type="checkbox">
-        <p class="taskTitle">${inputText}</p>
-      </div>
-      <button class="delTaskBtns">-</button>
+    <div class="itemContainer">
+    <input class="taskCheck" type="checkbox">
+    <p class="taskTitle">${inputText}</p>
+    </div>
+    <button class="delTaskBtns">-</button>
     </li>
-  `;
+    `;
+  }
   taskInput.value = '';
   taskInput.focus();
 }
