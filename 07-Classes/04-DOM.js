@@ -43,3 +43,14 @@ function deleteTask(event){
 };
 
 taskContainer.addEventListener('click', deleteTask);
+
+
+// task done
+function taskDone(event){
+  const clickedItem = event.target;
+  
+  if(clickedItem.classList.contains('taskCheck')){
+    clickedItem.closest('div').classList.toggle('completed');
+  };
+}
+taskContainer.addEventListener('click', taskDone);
