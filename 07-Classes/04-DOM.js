@@ -2,10 +2,10 @@ const taskInput = document.querySelector('#taskInput');
 const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 
-class todoList{
+class Todo{
   constructor(taskName = 'New Task', completed = false){
     this.taskName = taskName;
-    this.completed = this.completed;
+    this.completed = completed;
   }
   toggle(){
     this.completed = !this.completed;
@@ -18,17 +18,18 @@ function addTask(){
   const inputText = taskInput.value.trim();
 
   if(inputText !== ''){
-    taskContainer.innerHTML += `
-    <li class="task">
+    const newTask = document.createElement('li');
+    newTask.classList.add('task');
+    taskContainer.appendChild(newTask);
+    newTask.innerHTML += `
       <div class="itemContainer">
       <input class="taskCheck" type="checkbox">
       <p class="taskTitle">${inputText}</p>
       </div>
       <button class="delTaskBtns">-</button>
-    </li>
     `;
   }
-  taskName = new todoList(inputText);
+  taskName = new Todo(inputText);
   taskInput.value = '';
   taskInput.focus();
 }
