@@ -33,11 +33,13 @@ taskInput.addEventListener('keydown', (event) => {
 
 
 // delete task
-taskContainer.addEventListener('click', (event) => {
+function deleteTask(event){
   const clickedItem = event.target;
-
-  if(clickedItem.className.includes('delTaskBtns')){
+  
+  if(clickedItem.classList.contains('delTaskBtns')){
     const closestLi = clickedItem.closest('li');
     closestLi.remove();
   }
-});
+};
+
+taskContainer.addEventListener('click', deleteTask);
