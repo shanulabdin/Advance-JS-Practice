@@ -29,4 +29,15 @@ taskInput.addEventListener('keydown', (event) => {
   if(event.key === 'Enter'){
     addTask();
   }
-})
+});
+
+
+// delete task
+taskContainer.addEventListener('click', (event) => {
+  const clickedItem = event.target;
+
+  if(clickedItem.className.includes('delTaskBtns')){
+    const closestLi = clickedItem.closest('li');
+    closestLi.remove();
+  }
+});
