@@ -2,22 +2,33 @@ const taskInput = document.querySelector('#taskInput');
 const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 
+class todoList{
+  constructor(taskName = 'New Task', completed = false){
+    this.taskName = taskName;
+    this.completed = this.completed;
+  }
+  toggle(){
+    this.completed = !this.completed;
+  }
+}
 
 // add task function
+let taskName;
 function addTask(){
   const inputText = taskInput.value.trim();
 
   if(inputText !== ''){
     taskContainer.innerHTML += `
     <li class="task">
-    <div class="itemContainer">
-    <input class="taskCheck" type="checkbox">
-    <p class="taskTitle">${inputText}</p>
-    </div>
-    <button class="delTaskBtns">-</button>
+      <div class="itemContainer">
+      <input class="taskCheck" type="checkbox">
+      <p class="taskTitle">${inputText}</p>
+      </div>
+      <button class="delTaskBtns">-</button>
     </li>
     `;
   }
+  taskName = new todoList(inputText);
   taskInput.value = '';
   taskInput.focus();
 }
@@ -51,6 +62,7 @@ function taskDone(event){
   
   if(clickedItem.classList.contains('taskCheck')){
     clickedItem.closest('div').classList.toggle('completed');
+    taskName.toggle();
   };
 }
 taskContainer.addEventListener('click', taskDone);
