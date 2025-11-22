@@ -3,7 +3,8 @@ const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 
 class Todo{
-  constructor(taskName = 'New Task', completed = false){
+  constructor(id, taskName = 'New Task', completed = false){
+    this.id = id;
     this.taskName = taskName;
     this.completed = completed;
   }
@@ -11,25 +12,29 @@ class Todo{
     this.completed = !this.completed;
   }
 }
+const todos = [];
+let nextId = 0;
 
 // add task function
-let taskName;
 function addTask(){
   const inputText = taskInput.value.trim();
+  if(!inputText) return;
+  
+  const todo = new Todo(nextId++, inputText)
+  todos.push(todo);
 
-  if(inputText !== ''){
-    const newTask = document.createElement('li');
-    newTask.classList.add('task');
-    taskContainer.appendChild(newTask);
-    newTask.innerHTML += `
-      <div class="itemContainer">
-      <input class="taskCheck" type="checkbox">
-      <p class="taskTitle">${inputText}</p>
-      </div>
-      <button class="delTaskBtns">-</button>
-    `;
-  }
-  taskName = new Todo(inputText);
+  const newTask = document.createElement('li');
+  newTask.classList.add('task');
+  newTask.dataset.id = todo.id;
+  taskContainer.appendChild(newTask);
+
+  newTask.innerHTML = `
+    <div class="itemContainer">
+    <input class="taskCheck" type="checkbox">
+    <p class="taskTitle">${todo.taskName}</p>
+    </div>
+    <button class="delTaskBtns">-</button>
+  `;
   taskInput.value = '';
   taskInput.focus();
 }
@@ -63,7 +68,6 @@ function taskDone(event){
   
   if(clickedItem.classList.contains('taskCheck')){
     clickedItem.closest('div').classList.toggle('completed');
-    taskName.toggle();
   };
 }
 taskContainer.addEventListener('click', taskDone);
