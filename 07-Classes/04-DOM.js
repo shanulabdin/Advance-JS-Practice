@@ -3,8 +3,8 @@ const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 
 
-
-addTaskBtn.addEventListener('click', () => {
+// add task function
+function addTask(){
   const inputText = taskInput.value;
 
   taskContainer.innerHTML += `
@@ -16,5 +16,10 @@ addTaskBtn.addEventListener('click', () => {
       <button class="delTaskBtns">-</button>
     </li>
   `;
-})
+  taskInput.value = '';
+  taskInput.focus();
+}
 
+addTaskBtn.addEventListener('click', () => {
+  addTask();
+});
