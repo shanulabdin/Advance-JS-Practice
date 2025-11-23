@@ -93,11 +93,7 @@ function taskDone(event){
       return;
     }
     
-    if(todos[todoFindIndex].completed === false){
-      todos[todoFindIndex].completed = true;
-    } else {
-      todos[todoFindIndex].completed = false;
-    }
+    todos[todoFindIndex].toggle();
   };
 }
 taskContainer.addEventListener('click', taskDone);
