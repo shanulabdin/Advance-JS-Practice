@@ -67,10 +67,8 @@ function deleteTask(event){
       return;
     }
 
-    const deletedTask = todos.splice(todoFindIndex, 1);
+    todos.splice(todoFindIndex, 1);
     
-    console.log(deletedTask);
-    console.log(todos);
     closestLi.remove();
   }
 };
