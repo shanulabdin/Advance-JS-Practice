@@ -82,6 +82,22 @@ function taskDone(event){
   
   if(clickedItem.classList.contains('taskCheck')){
     clickedItem.closest('div').classList.toggle('completed');
+
+    const closestLi = clickedItem.closest('li');
+    const closestLiId = Number(closestLi.dataset.id);
+
+    const todoFindIndex = todos.findIndex(t => t.id === closestLiId)
+
+    if(todoFindIndex === -1){
+      console.warn('Todo not found for this id:', closestLiId);
+      return;
+    }
+    
+    if(todos[todoFindIndex].completed === false){
+      todos[todoFindIndex].completed = true;
+    } else {
+      todos[todoFindIndex].completed = false;
+    }
   };
 }
 taskContainer.addEventListener('click', taskDone);
