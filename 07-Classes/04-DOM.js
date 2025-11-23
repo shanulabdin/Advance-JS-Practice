@@ -8,6 +8,9 @@ class Todo{
     this.taskName = taskName;
     this.completed = completed;
   }
+  removeTask(){
+    
+  }
   toggle(){
     this.completed = !this.completed;
   }
@@ -55,6 +58,17 @@ function deleteTask(event){
   
   if(clickedItem.classList.contains('delTaskBtns')){
     const closestLi = clickedItem.closest('li');
+    const closestLiId = Number(closestLi.dataset.id);
+    
+    const todoFindIndex= todos.findIndex(t => t.id === closestLiId);
+    const deletedTask = todos.splice(todoFindIndex, 1);
+
+
+    console.log('closestLiId', closestLiId);
+    console.log('todo.findIndex()', todoFindIndex);
+    console.log('deleteTask', deletedTask);
+    console.log('todos array', todos);
+    
     closestLi.remove();
   }
 };
