@@ -62,16 +62,15 @@ function deleteTask(event){
     
     const todoFindIndex= todos.findIndex(t => t.id === closestLiId);
 
-    if(todoFindIndex !== -1){
-      const deletedTask = todos.splice(todoFindIndex, 1);
-      
-      
-      console.log('closestLiId', closestLiId);
-      console.log('todo.findIndex()', todoFindIndex);
-      console.log('deleteTask', deletedTask);
-      console.log('todos array', todos);
+    if (todoFindIndex === -1) {
+      console.warn('Todo not found for id', closestLiId);
+      return;
     }
+
+    const deletedTask = todos.splice(todoFindIndex, 1);
     
+    console.log(deletedTask);
+    console.log(todos);
     closestLi.remove();
   }
 };
