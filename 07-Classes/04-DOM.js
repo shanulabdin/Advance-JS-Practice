@@ -28,6 +28,17 @@ class TodoList{
     this.todos.splice(index, 1);
     console.log(this.todos);
   }
+  toggle(id){
+    const index = this.todos.findIndex(t => t.id === id);
+
+    if (index === -1) {
+      console.warn('Todo not found for this id:', id);
+      return;
+    }
+    
+    this.todos[index].completed = !this.todos[index].completed;
+    console.log(this.todos);
+  }
 }
 
 const todoList = new TodoList();
@@ -91,15 +102,7 @@ function taskDone(event) {
     const closestLi = clickedItem.closest('li');
     const closestLiId = Number(closestLi.dataset.id);
 
-    const todoFindIndex = todos.findIndex(t => t.id === closestLiId);
-
-    if (todoFindIndex === -1) {
-      console.warn('Todo not found for this id:', closestLiId);
-      return;
-    }
-    
-    // no class method, just flip the boolean
-    todos[todoFindIndex].completed = !todos[todoFindIndex].completed;
+    todoList.toggle(closestLiId);
   }
 }
 
