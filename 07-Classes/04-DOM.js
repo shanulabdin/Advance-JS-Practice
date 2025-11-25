@@ -28,6 +28,11 @@ class TodoList{
     if (index === -1) return;
     this.todos.splice(index, 1);
   }
+  toggle(id){
+    const index = this.todos.findIndex(t => t.id === id);
+    if (index === -1) return;
+    this.todos[index].toggle();
+  }
 }
 
 const todoList = new TodoList();
@@ -93,15 +98,7 @@ function taskDone(event) {
     const closestLiId = Number(closestLi.dataset.id);
 
     
-    const todoFindIndex = todoList.todos.findIndex(t => t.id === closestLiId);
-
-    if (todoFindIndex === -1) {
-      console.warn('Todo not found for this id:', closestLiId);
-      return;
-    }
-    
-    // no class method, just flip the boolean
-    todoList.todos[todoFindIndex].toggle();
+    todoList.toggle(closestLiId);
   }
 }
 
