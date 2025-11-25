@@ -2,27 +2,35 @@ const taskInput = document.querySelector('#taskInput');
 const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 
-// ===== No classes: just an array of todo objects =====
-let nextId = 0;
-const todos = [];
-
-function addTodo(inputText) {
-  const todo = {
-    id: nextId++,
-    taskName: inputText,
-    completed: false,
-  };
-  todos.push(todo);
-  console.log(todos);
-  return todo;
+class Todo{
+  constructor(id, name = 'New Task', completed = false){
+    this.id = id;
+    this.name = name;
+    this.completed = completed;
+  }
 }
+
+class TodoList{
+  constructor(){
+    this.todos = [];
+  }
+  add(text){
+    this.todos.push(text);
+  }
+}
+
+const todoList = new TodoList();
+
+let nextId = 0;
 
 // add task function
 function addTask() {
   const inputText = taskInput.value.trim();
   if (!inputText) return;
   
-  const todo = addTodo(inputText);
+  const todo = new Todo(nextId++, inputText);
+  todoList.add(todo);
+  console.log(todoList.todos);
 
   const newTask = document.createElement('li');
   newTask.classList.add('task');
@@ -32,7 +40,7 @@ function addTask() {
   newTask.innerHTML = `
     <div class="itemContainer">
       <input class="taskCheck" type="checkbox">
-      <p class="taskTitle">${todo.taskName}</p>
+      <p class="taskTitle">${inputText}</p>
     </div>
     <button class="delTaskBtns">-</button>
   `;
@@ -58,15 +66,14 @@ function deleteTask(event) {
     const closestLi = clickedItem.closest('li');
     const closestLiId = Number(closestLi.dataset.id);
     
-    const todoFindIndex = todos.findIndex(t => t.id === closestLiId);
+    const todoFindIndex = todoList.todos.findIndex(t => t.id === closestLiId);
 
     if (todoFindIndex === -1) {
       console.warn('Todo not found for id', closestLiId);
       return;
     }
 
-    todos.splice(todoFindIndex, 1);
-    
+    todoList.todos.splice(todoFindIndex, 1);
     closestLi.remove();
   }
 }
@@ -83,7 +90,8 @@ function taskDone(event) {
     const closestLi = clickedItem.closest('li');
     const closestLiId = Number(closestLi.dataset.id);
 
-    const todoFindIndex = todos.findIndex(t => t.id === closestLiId);
+    
+    const todoFindIndex = todoList.todos.findIndex(t => t.id === closestLiId);
 
     if (todoFindIndex === -1) {
       console.warn('Todo not found for this id:', closestLiId);
@@ -91,7 +99,7 @@ function taskDone(event) {
     }
     
     // no class method, just flip the boolean
-    todos[todoFindIndex].completed = !todos[todoFindIndex].completed;
+    todoList.todos[todoFindIndex].completed = !todoList.todos[todoFindIndex].completed;
   }
 }
 
