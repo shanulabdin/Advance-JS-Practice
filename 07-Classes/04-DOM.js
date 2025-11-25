@@ -2,38 +2,27 @@ const taskInput = document.querySelector('#taskInput');
 const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 
-class Todo{
-  constructor(id, taskName = 'New Task', completed = false){
-    this.id = id;
-    this.taskName = taskName;
-    this.completed = completed;
-  }
-  toggle(){
-    this.completed = !this.completed;
-  }
-}
-
-class TodoList{
-  constructor(){
-    this.todos = [];
-  }
-  add(inputText){
-    const todo = new Todo(nextId++, inputText);
-    this.todos.push(todo);
-    console.log(this.todos);
-    return todo;
-  }
-}
-
+// ===== No classes: just an array of todo objects =====
 let nextId = 0;
-const todoList = new TodoList();
+const todos = [];
+
+function addTodo(inputText) {
+  const todo = {
+    id: nextId++,
+    taskName: inputText,
+    completed: false,
+  };
+  todos.push(todo);
+  console.log(todos);
+  return todo;
+}
 
 // add task function
-function addTask(){
+function addTask() {
   const inputText = taskInput.value.trim();
-  if(!inputText) return;
+  if (!inputText) return;
   
-  const todo = todoList.add(inputText);
+  const todo = addTodo(inputText);
 
   const newTask = document.createElement('li');
   newTask.classList.add('task');
@@ -42,8 +31,8 @@ function addTask(){
 
   newTask.innerHTML = `
     <div class="itemContainer">
-    <input class="taskCheck" type="checkbox">
-    <p class="taskTitle">${todo.taskName}</p>
+      <input class="taskCheck" type="checkbox">
+      <p class="taskTitle">${todo.taskName}</p>
     </div>
     <button class="delTaskBtns">-</button>
   `;
@@ -54,22 +43,22 @@ function addTask(){
 addTaskBtn.addEventListener('click', () => {
   addTask();
 });
+
 taskInput.addEventListener('keydown', (event) => {
-  if(event.key === 'Enter'){
+  if (event.key === 'Enter') {
     addTask();
   }
 });
 
-
 // delete task
-function deleteTask(event){
+function deleteTask(event) {
   const clickedItem = event.target;
   
-  if(clickedItem.classList.contains('delTaskBtns')){
+  if (clickedItem.classList.contains('delTaskBtns')) {
     const closestLi = clickedItem.closest('li');
     const closestLiId = Number(closestLi.dataset.id);
     
-    const todoFindIndex= todos.findIndex(t => t.id === closestLiId);
+    const todoFindIndex = todos.findIndex(t => t.id === closestLiId);
 
     if (todoFindIndex === -1) {
       console.warn('Todo not found for id', closestLiId);
@@ -80,29 +69,30 @@ function deleteTask(event){
     
     closestLi.remove();
   }
-};
+}
 
 taskContainer.addEventListener('click', deleteTask);
 
-
 // task done
-function taskDone(event){
+function taskDone(event) {
   const clickedItem = event.target;
   
-  if(clickedItem.classList.contains('taskCheck')){
+  if (clickedItem.classList.contains('taskCheck')) {
     clickedItem.closest('div').classList.toggle('completed');
 
     const closestLi = clickedItem.closest('li');
     const closestLiId = Number(closestLi.dataset.id);
 
-    const todoFindIndex = todos.findIndex(t => t.id === closestLiId)
+    const todoFindIndex = todos.findIndex(t => t.id === closestLiId);
 
-    if(todoFindIndex === -1){
+    if (todoFindIndex === -1) {
       console.warn('Todo not found for this id:', closestLiId);
       return;
     }
     
-    todos[todoFindIndex].toggle();
-  };
+    // no class method, just flip the boolean
+    todos[todoFindIndex].completed = !todos[todoFindIndex].completed;
+  }
 }
+
 taskContainer.addEventListener('click', taskDone);
