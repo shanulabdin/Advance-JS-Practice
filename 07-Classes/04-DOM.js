@@ -10,8 +10,19 @@ class Todo{
   }
 }
 
+class TodoList{
+  constructor(){
+    this.todos = [];
+  }
+  add(inputText){
+    const todo = new Todo(nextId++, inputText);
+    this.todos.push(todo);
+    console.log(this.todos);
+    return todo;
+  }
+}
 
-// ===== No classes: just an array of todo objects =====
+const todoList = new TodoList();
 let nextId = 0;
 
 // add task function
@@ -19,8 +30,7 @@ function addTask() {
   const inputText = taskInput.value.trim();
   if (!inputText) return;
   
-  const todo = new Todo(nextId++, inputText);
-  console.log(todo)
+  const todo = todoList.add(inputText);
 
   const newTask = document.createElement('li');
   newTask.classList.add('task');
