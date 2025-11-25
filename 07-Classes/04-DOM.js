@@ -17,8 +17,16 @@ class TodoList{
   add(inputText){
     const todo = new Todo(nextId++, inputText);
     this.todos.push(todo);
-    console.log(this.todos);
     return todo;
+  }
+  delete(id){
+    const index = this.todos.findIndex(t => t.id === id);
+    if (index === -1) {
+      console.warn('Todo not found for id', id);
+      return;
+    }
+    this.todos.splice(index, 1);
+    console.log(this.todos);
   }
 }
 
@@ -66,15 +74,7 @@ function deleteTask(event) {
     const closestLi = clickedItem.closest('li');
     const closestLiId = Number(closestLi.dataset.id);
     
-    const todoFindIndex = todos.findIndex(t => t.id === closestLiId);
-
-    if (todoFindIndex === -1) {
-      console.warn('Todo not found for id', closestLiId);
-      return;
-    }
-
-    todos.splice(todoFindIndex, 1);
-    
+    todoList.delete(closestLiId);
     closestLi.remove();
   }
 }
