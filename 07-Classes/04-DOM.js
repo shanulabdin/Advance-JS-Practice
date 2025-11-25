@@ -14,9 +14,13 @@ class TodoList{
   constructor(){
     this.todos = [];
   }
-  add(text){
-    this.todos.push(text);
+  add(inputText){
+    const todo = new Todo(nextId++, inputText);
+    this.todos.push(todo);
+    console.log(this.todos);
+    return todo;
   }
+  remove(){}
 }
 
 const todoList = new TodoList();
@@ -28,9 +32,7 @@ function addTask() {
   const inputText = taskInput.value.trim();
   if (!inputText) return;
   
-  const todo = new Todo(nextId++, inputText);
-  todoList.add(todo);
-  console.log(todoList.todos);
+  const todo = todoList.add(inputText);
 
   const newTask = document.createElement('li');
   newTask.classList.add('task');
