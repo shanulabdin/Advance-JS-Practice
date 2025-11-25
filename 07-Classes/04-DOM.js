@@ -2,11 +2,16 @@ const taskInput = document.querySelector('#taskInput');
 const addTaskBtn = document.querySelector('#addTaskBtn');
 const taskContainer = document.querySelector('#taskContainer');
 
+let nextId = 0;
+
 class Todo{
   constructor(id, taskName = 'New Task', completed = false){
     this.id = id;
     this.taskName = taskName;
     this.completed = completed;
+  }
+  toggle(){
+    this.completed = !this.completed;
   }
 }
 
@@ -36,13 +41,11 @@ class TodoList{
       return;
     }
     
-    this.todos[index].completed = !this.todos[index].completed;
-    console.log(this.todos);
+    this.todos[index].toggle();
   }
 }
 
 const todoList = new TodoList();
-let nextId = 0;
 
 // add task function
 function addTask() {
