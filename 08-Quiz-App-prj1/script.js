@@ -79,10 +79,10 @@ function nextQuestion(){
 
   answerButtons.forEach(b => b.addEventListener('click', () => {
     if(b.textContent === currentQuestion.correct){
-      b.classList.toggle('wrong');
+      b.classList.toggle('correct');
       correct++;
     } else {
-      b.classList.toggle('correct');
+      b.classList.toggle('wrong');
       wrong++;
     }
     answerButtons.forEach(b => b.disabled = true);
