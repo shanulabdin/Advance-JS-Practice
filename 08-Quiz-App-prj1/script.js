@@ -1,5 +1,6 @@
 const newQuestion = document.querySelector('.newQuestion');
 const nextButton = document.querySelector('#nextButton');
+const resultButton = document.querySelector('#resultButton');
 
 const questions = [
   {
@@ -55,6 +56,9 @@ const questions = [
 ]
 let nextIndex = 0;
 
+let correct = 0;
+let wrong = 0;
+
 function nextQuestion(){
   const currentQuestion = questions[nextIndex];
   newQuestion.innerHTML = `
@@ -74,13 +78,21 @@ function nextQuestion(){
 
   answerButtons.forEach(b => b.addEventListener('click', () => {
     if(b.textContent === currentQuestion.correct){
-      b.classList.add('wrong')
+      b.classList.toggle('wrong');
+      correct++;
     } else {
-      b.classList.add('correct')
+      b.classList.toggle('correct');
+      wrong++;
     }
+    answerButtons.forEach(b => b.disabled = true);
   }))
 
   nextIndex++;
+
+  if(nextIndex > questions.length - 1){
+    nextButton.remove();
+    resultButton.style.display = 'block';
+  }
 }
 nextButton.addEventListener('click', nextQuestion);
 nextQuestion();

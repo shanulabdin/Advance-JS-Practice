@@ -46,6 +46,9 @@
       border: none;
       cursor: pointer;
     }
+    .answerButton:disabled{
+      color: black;
+    }
     .answerButton:hover{
       background-color: rgb(190, 190, 190);
     }
@@ -64,7 +67,7 @@
     .wrong:hover{
       background-color: rgb(73, 156, 80);
     }
-    #nextButton{
+    #nextButton, #resultButton{
       font-size: 20px;
       padding: 5px 10px;
       margin: 10px;
@@ -73,10 +76,13 @@
       cursor: pointer;
       background-color: rgb(255, 185, 79);
     }
-    #nextButton:hover{
+    #resultButton{
+      display: none;
+    }
+    #nextButton:hover, #resultButton:hover{
       background-color: rgb(255, 204, 128);
     }
-    #nextButton:active{
+    #nextButton:active, #resultButton:active{
       background-color: rgb(187, 149, 93);
     }
 
@@ -92,6 +98,7 @@
     </div>
 
     <button id="nextButton">Next</button>
+    <button id="resultButton">Result</button>
   </div>
 
 </body>
