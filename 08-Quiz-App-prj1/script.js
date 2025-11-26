@@ -1,6 +1,7 @@
 const newQuestion = document.querySelector('.newQuestion');
 const nextButton = document.querySelector('#nextButton');
 const resultButton = document.querySelector('#resultButton');
+const retryButton = document.querySelector('#retryButton');
 
 const questions = [
   {
@@ -93,6 +94,18 @@ function nextQuestion(){
     nextButton.remove();
     resultButton.style.display = 'block';
   }
+
+  let result = correct >= 4 ? 'Passed' : 'Failed';
+  resultButton.addEventListener('click', () => {
+    newQuestion.innerHTML = `
+      <div id="showResult">
+        <p>Correct: ${correct}</p>
+        <p>Wrong: ${wrong}</p>
+        <p>${result}</p>
+      </div>
+    `;
+  })
+  resultButton.style.display = 'none';
 }
 nextButton.addEventListener('click', nextQuestion);
 nextQuestion();
