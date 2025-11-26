@@ -5,54 +5,54 @@ const retryButton = document.querySelector('#retryButton');
 
 const questions = [
   {
-    question: 'What color is the sky on a clear day?',
-    options: ['green', 'blue', 'red', 'yellow'],
-    correct: 'blue'
+    question: 'What is the largest planet in our solar system?',
+    options: ['Earth', 'Mars', 'Jupiter', 'Saturn'],
+    correct: 'Jupiter'
   },
   {
-    question: 'How many days are in a week?',
+    question: 'How many continents are there on Earth?',
     options: ['5', '6', '7', '8'],
     correct: '7'
   },
   {
-    question: 'What is 2 + 2?',
-    options: ['3', '5', '4', '6'],
-    correct: '4'
+    question: 'What do plants need to make food?',
+    options: ['Moonlight', 'Starlight', 'Sunlight', 'Fire'],
+    correct: 'Sunlight'
   },
   {
-    question: 'What do bees make?',
-    options: ['milk', 'honey', 'cheese', 'water'],
-    correct: 'honey'
+    question: 'Which animal can live both in water and on land?',
+    options: ['Dog', 'Frog', 'Eagle', 'Shark'],
+    correct: 'Frog'
   },
   {
-    question: 'What is the first month of the year?',
-    options: ['March', 'December', 'January', 'April'],
-    correct: 'January'
+    question: 'What is the capital of France?',
+    options: ['Rome', 'Paris', 'Berlin', 'Madrid'],
+    correct: 'Paris'
   },
   {
-    question: 'What planet do we live on?',
-    options: ['Mars', 'Earth', 'Jupiter', 'Venus'],
-    correct: 'Earth'
+    question: 'How many sides does a triangle have?',
+    options: ['2', '3', '4', '5'],
+    correct: '3'
   },
   {
-    question: 'Which animal is known as the "King of the Jungle"?',
-    options: ['Tiger', 'Elephant', 'Lion', 'Bear'],
-    correct: 'Lion'
+    question: 'What do cows drink?',
+    options: ['Milk', 'Juice', 'Water', 'Tea'],
+    correct: 'Water'
   },
   {
-    question: 'How many legs does a spider have?',
-    options: ['6', '8', '10', '4'],
-    correct: '8'
+    question: 'Which fruit is yellow and curved?',
+    options: ['Apple', 'Banana', 'Orange', 'Grape'],
+    correct: 'Banana'
   },
   {
-    question: 'What is the opposite of “up”?',
-    options: ['Right', 'Down', 'Over', 'In'],
-    correct: 'Down'
+    question: 'What gas do humans need to breathe?',
+    options: ['Oxygen', 'Carbon dioxide', 'Nitrogen', 'Helium'],
+    correct: 'Oxygen'
   },
   {
-    question: 'What do you call frozen water?',
-    options: ['Ice', 'Steam', 'Snow', 'Cloud'],
-    correct: 'Ice'
+    question: 'Which shape has four equal sides?',
+    options: ['Rectangle', 'Triangle', 'Square', 'Circle'],
+    correct: 'Square'
   }
 ]
 let nextIndex = 0;
