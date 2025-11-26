@@ -59,16 +59,28 @@ function nextQuestion(){
   const currentQuestion = questions[nextIndex];
   newQuestion.innerHTML = `
     <div id="questionContainer">
-    <p class="question">${currentQuestion.question}</p>
+      <p class="question">${currentQuestion.question}</p>
     </div>
     
     <div id="optionContainer">
-    <button class="answerButton">${currentQuestion.options[0]}</button>
-    <button class="answerButton">${currentQuestion.options[1]}</button>
-    <button class="answerButton">${currentQuestion.options[2]}</button>
-    <button class="answerButton">${currentQuestion.options[3]}</button>
+      <button class="answerButton">${currentQuestion.options[0]}</button>
+      <button class="answerButton">${currentQuestion.options[1]}</button>
+      <button class="answerButton">${currentQuestion.options[2]}</button>
+      <button class="answerButton">${currentQuestion.options[3]}</button>
     </div>
   `;
+
+  const answerButtons = document.querySelectorAll('.answerButton');
+
+  answerButtons.forEach(b => b.addEventListener('click', () => {
+    if(b.textContent === currentQuestion.correct){
+      b.classList.add('wrong')
+    } else {
+      b.classList.add('correct')
+    }
+  }))
+
   nextIndex++;
 }
 nextButton.addEventListener('click', nextQuestion);
+nextQuestion();
