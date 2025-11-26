@@ -20,72 +20,76 @@
       height: 90vh;
       margin-top: 30px;
     }
-    .listContainer{
+    #quizContainer{
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 40px;
+      margin-top: 100px;
     }
-    .addTask{
+    .questionParent{
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      flex-direction: column;
     }
-    button{
+    #optionContainer{
+      margin: 30px;
+    }
+    .question{
+      font-size: 25px;
+    }
+    .answerButton{
+      font-size: 20px;
       padding: 5px 10px;
       margin: 10px;
       border-radius: 5px;
       border: none;
       cursor: pointer;
     }
-    button:hover{
+    .answerButton:hover{
       background-color: rgb(190, 190, 190);
     }
-    button:active{
+    .answerButton:active{
       background-color: rgb(150, 150, 150);
     }
-    input{
-      padding: 10px;
-      border-radius: 10px;
+    #nextButton{
+      font-size: 20px;
+      padding: 5px 10px;
+      margin: 10px;
+      border-radius: 5px;
       border: none;
-      height: 40px;
+      cursor: pointer;
+      background-color: rgb(255, 185, 79);
     }
-    .taskContainer{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      width: 100%;
+    #nextButton:hover{
+      background-color: rgb(255, 204, 128);
     }
-    .itemContainer{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    #nextButton:active{
+      background-color: rgb(187, 149, 93);
     }
-    .taskTitle{
-      margin: 0 10px;
-    }
-    .task{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: white;
-      margin: 4px 4px;
-      height: 40px;
-      width: 100%;
-      border-radius: 10px;
-      padding-left: 10px;
-      color: black;
-    }
-    .completed{
-      text-decoration: line-through;
-      color: rgb(150, 150, 150);
-    }
+
   </style>
 </head>
 <body>
   <h1>Quiz App</h1>
+
+  <div id="quizContainer">
+
+    <div class="questionParent">
+      <div id="questionContainer">
+        <p class="question">What is the biggest city in the world.</p>
+      </div>
+      
+      <div id="optionContainer">
+        <button class="answerButton">Karachi</button>
+        <button class="answerButton">Tokyo</button>
+        <button class="answerButton">Delhi</button>
+        <button class="answerButton">New York</button>
+      </div>
+    </div>
+
+    <button id="nextButton">Next</button>
+  </div>
 
 </body>
 <script src="script.js"></script>
