@@ -53,20 +53,22 @@ const questions = [
     correct: 'Ice'
   }
 ]
-
+let nextIndex = 0;
 
 function nextQuestion(){
+  const currentQuestion = questions[nextIndex];
   newQuestion.innerHTML = `
     <div id="questionContainer">
-    <p class="question">What is the biggest city in the world.</p>
+    <p class="question">${currentQuestion.question}</p>
     </div>
     
     <div id="optionContainer">
-    <button class="answerButton">Karachi</button>
-    <button class="answerButton">Tokyo</button>
-    <button class="answerButton">Delhi</button>
-    <button class="answerButton">New York</button>
+    <button class="answerButton">${currentQuestion.options[0]}</button>
+    <button class="answerButton">${currentQuestion.options[1]}</button>
+    <button class="answerButton">${currentQuestion.options[2]}</button>
+    <button class="answerButton">${currentQuestion.options[3]}</button>
     </div>
   `;
+  nextIndex++;
 }
 nextButton.addEventListener('click', nextQuestion);
