@@ -91,7 +91,7 @@ function nextQuestion(){
   nextIndex++;
 
   if(nextIndex > questions.length - 1){
-    nextButton.remove();
+    nextButton.style.display = 'none';
     resultButton.style.display = 'block';
   }
 
@@ -104,8 +104,20 @@ function nextQuestion(){
         <p>${result}</p>
       </div>
     `;
+    resultButton.style.display = 'none';
+    retryButton.style.display = 'block';
   })
-  resultButton.style.display = 'none';
 }
 nextButton.addEventListener('click', nextQuestion);
 nextQuestion();
+
+retryButton.addEventListener('click', () => {
+  nextIndex = 0;
+  correct = 0;
+  wrong = 0;
+
+  retryButton.style.display = 'none';
+  resultButton.style.display = 'none';
+  nextButton.style.display = 'block';
+  nextQuestion();
+})
