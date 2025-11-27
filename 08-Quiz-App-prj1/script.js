@@ -60,8 +60,8 @@ let nextIndex = 0;
 let correct = 0;
 let wrong = 0;
 
-const currentQuestion = questions[nextIndex];
 function renderQuestion(){
+  const currentQuestion = questions[nextIndex];
   newQuestion.innerHTML = `
     <div id="questionContainer">
       <p class="question">${currentQuestion.question}</p>
@@ -74,54 +74,86 @@ function renderQuestion(){
       <button class="answerButton">${currentQuestion.options[3]}</button>
     </div>
   `;
+  nextIndex++;
+
+
+  const answerButtons = document.querySelectorAll('.answerButton');
+  answerButtons.forEach(b => b.addEventListener('click', () => {
+    handleAnswerClick(b, currentQuestion, answerButtons)
+  }))
+
 }
 renderQuestion();
 
-
-function nextQuestion(){
-  const answerButtons = document.querySelectorAll('.answerButton');
-
-  answerButtons.forEach(b => b.addEventListener('click', () => {
-    if(b.textContent === currentQuestion.correct){
-      b.classList.add('correct');
-      correct++;
-    } else {
-      b.classList.add('wrong');
-      wrong++;
-    }
-    answerButtons.forEach(b => b.disabled = true);
-  }))
-
-  nextIndex++;
-
-  if(nextIndex > questions.length - 1){
-    nextButton.style.display = 'none';
-    resultButton.style.display = 'block';
+function handleAnswerClick(b, currentQuestion, answerButtons){
+  if(b.textContent === currentQuestion.correct){
+    b.classList.add('correct');
+    correct++;
+  } else {
+    b.classList.add('wrong');
+    wrong++;
   }
-
-  let result = correct >= 4 ? 'Passed' : 'Failed';
-  resultButton.addEventListener('click', () => {
-    newQuestion.innerHTML = `
-      <div id="showResult">
-        <p>Correct: ${correct}</p>
-        <p>Wrong: ${wrong}</p>
-        <p>${result}</p>
-      </div>
-    `;
-    resultButton.style.display = 'none';
-    retryButton.style.display = 'block';
-  })
+  answerButtons.forEach(b => b.disabled = true);
 }
-nextButton.addEventListener('click', nextQuestion);
-nextQuestion();
 
-retryButton.addEventListener('click', () => {
-  nextIndex = 0;
-  correct = 0;
-  wrong = 0;
+nextButton.addEventListener('click', () => {
+  renderQuestion();
+});
 
-  retryButton.style.display = 'none';
-  resultButton.style.display = 'none';
-  nextButton.style.display = 'block';
-  nextQuestion();
-})
+
+// function handleAnswer(){
+
+//   const answerButtons = document.querySelectorAll('.answerButton');
+//   answerButtons.forEach(b => b.addEventListener('click', () => {
+//     const currentQuestion = questions[nextIndex];
+
+//     if(b.textContent === currentQuestion.correct){
+//       b.classList.add('correct');
+//       correct++;
+//     } else {
+//       b.classList.add('wrong');
+//       wrong++;
+//     }
+//     answerButtons.forEach(b => b.disabled = true);
+//   }))
+
+// }
+// handleAnswer();
+
+// function nextQuestion(){
+//   if(nextIndex > questions.length - 1){
+//     nextButton.style.display = 'none';
+//     resultButton.style.display = 'block';
+//   }
+
+//   let result = correct >= 4 ? 'Passed' : 'Failed';
+//   resultButton.addEventListener('click', () => {
+//     newQuestion.innerHTML = `
+//       <div id="showResult">
+//         <p>Correct: ${correct}</p>
+//         <p>Wrong: ${wrong}</p>
+//         <p>${result}</p>
+//       </div>
+//     `;
+//     resultButton.style.display = 'none';
+//     retryButton.style.display = 'block';
+//   })
+// }
+// nextQuestion();
+
+// nextButton.addEventListener('click', () => {
+//   renderQuestion();
+//   handleAnswer();
+//   nextQuestion();
+// });
+
+// retryButton.addEventListener('click', () => {
+//   nextIndex = 0;
+//   correct = 0;
+//   wrong = 0;
+
+//   retryButton.style.display = 'none';
+//   resultButton.style.display = 'none';
+//   nextButton.style.display = 'block';
+//   nextQuestion();
+// })
