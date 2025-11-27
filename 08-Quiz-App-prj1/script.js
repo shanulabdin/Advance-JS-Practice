@@ -123,15 +123,13 @@ nextButton.addEventListener('click', () => {
   renderQuestion();
 });
 
+retryButton.addEventListener('click', () => {
+  nextIndex = 0;
+  correct = 0;
+  wrong = 0;
 
-
-// retryButton.addEventListener('click', () => {
-//   nextIndex = 0;
-//   correct = 0;
-//   wrong = 0;
-
-//   retryButton.style.display = 'none';
-//   resultButton.style.display = 'none';
-//   nextButton.style.display = 'block';
-//   nextQuestion();
-// })
+  retryButton.style.display = 'none';
+  resultButton.style.display = 'none';
+  nextButton.style.display = 'block';
+  renderQuestion();
+})
