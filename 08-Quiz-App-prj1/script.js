@@ -60,8 +60,8 @@ let nextIndex = 0;
 let correct = 0;
 let wrong = 0;
 
-function nextQuestion(){
-  const currentQuestion = questions[nextIndex];
+const currentQuestion = questions[nextIndex];
+function renderQuestion(){
   newQuestion.innerHTML = `
     <div id="questionContainer">
       <p class="question">${currentQuestion.question}</p>
@@ -74,15 +74,19 @@ function nextQuestion(){
       <button class="answerButton">${currentQuestion.options[3]}</button>
     </div>
   `;
+}
+renderQuestion();
 
+
+function nextQuestion(){
   const answerButtons = document.querySelectorAll('.answerButton');
 
   answerButtons.forEach(b => b.addEventListener('click', () => {
     if(b.textContent === currentQuestion.correct){
-      b.classList.toggle('correct');
+      b.classList.add('correct');
       correct++;
     } else {
-      b.classList.toggle('wrong');
+      b.classList.add('wrong');
       wrong++;
     }
     answerButtons.forEach(b => b.disabled = true);
