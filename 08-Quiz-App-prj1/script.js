@@ -82,7 +82,10 @@ function renderQuestion(){
     handleAnswerClick(b, currentQuestion, answerButtons)
   }))
 
+
+  renderResult(questions);
 }
+
 renderQuestion();
 
 function handleAnswerClick(b, currentQuestion, answerButtons){
@@ -96,56 +99,31 @@ function handleAnswerClick(b, currentQuestion, answerButtons){
   answerButtons.forEach(b => b.disabled = true);
 }
 
+function renderResult(questions){
+  if(nextIndex > questions.length - 1){
+    nextButton.style.display = 'none';
+    resultButton.style.display = 'block';
+  }
+
+  let result = correct >= 4 ? 'Passed' : 'Failed';
+  resultButton.addEventListener('click', () => {
+    newQuestion.innerHTML = `
+      <div id="showResult">
+        <p>Correct: ${correct}</p>
+        <p>Wrong: ${wrong}</p>
+        <p>${result}</p>
+      </div>
+    `;
+    resultButton.style.display = 'none';
+    retryButton.style.display = 'block';
+  })
+}
+
 nextButton.addEventListener('click', () => {
   renderQuestion();
 });
 
 
-// function handleAnswer(){
-
-//   const answerButtons = document.querySelectorAll('.answerButton');
-//   answerButtons.forEach(b => b.addEventListener('click', () => {
-//     const currentQuestion = questions[nextIndex];
-
-//     if(b.textContent === currentQuestion.correct){
-//       b.classList.add('correct');
-//       correct++;
-//     } else {
-//       b.classList.add('wrong');
-//       wrong++;
-//     }
-//     answerButtons.forEach(b => b.disabled = true);
-//   }))
-
-// }
-// handleAnswer();
-
-// function nextQuestion(){
-//   if(nextIndex > questions.length - 1){
-//     nextButton.style.display = 'none';
-//     resultButton.style.display = 'block';
-//   }
-
-//   let result = correct >= 4 ? 'Passed' : 'Failed';
-//   resultButton.addEventListener('click', () => {
-//     newQuestion.innerHTML = `
-//       <div id="showResult">
-//         <p>Correct: ${correct}</p>
-//         <p>Wrong: ${wrong}</p>
-//         <p>${result}</p>
-//       </div>
-//     `;
-//     resultButton.style.display = 'none';
-//     retryButton.style.display = 'block';
-//   })
-// }
-// nextQuestion();
-
-// nextButton.addEventListener('click', () => {
-//   renderQuestion();
-//   handleAnswer();
-//   nextQuestion();
-// });
 
 // retryButton.addEventListener('click', () => {
 //   nextIndex = 0;
