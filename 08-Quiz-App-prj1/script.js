@@ -74,18 +74,20 @@ function renderQuestion(){
       <button class="answerButton">${currentQuestion.options[3]}</button>
     </div>
   `;
-  nextIndex++;
-
 
   const answerButtons = document.querySelectorAll('.answerButton');
   answerButtons.forEach(b => b.addEventListener('click', () => {
     handleAnswerClick(b, currentQuestion, answerButtons)
   }))
 
-
-  renderResult(questions);
+  if(nextIndex === questions.length - 1){
+    nextButton.style.display = 'none';
+    resultButton.style.display = 'block';
+  }else{
+    nextButton.style.display = 'block';
+    resultButton.style.display = 'none';
+  }
 }
-
 renderQuestion();
 
 function handleAnswerClick(b, currentQuestion, answerButtons){
@@ -99,28 +101,32 @@ function handleAnswerClick(b, currentQuestion, answerButtons){
   answerButtons.forEach(b => b.disabled = true);
 }
 
-function renderResult(questions){
-  if(nextIndex > questions.length - 1){
-    nextButton.style.display = 'none';
-    resultButton.style.display = 'block';
-  }
-
+function renderResult(){
   let result = correct >= 4 ? 'Passed' : 'Failed';
-  resultButton.addEventListener('click', () => {
-    newQuestion.innerHTML = `
-      <div id="showResult">
-        <p>Correct: ${correct}</p>
-        <p>Wrong: ${wrong}</p>
-        <p>${result}</p>
-      </div>
-    `;
-    resultButton.style.display = 'none';
-    retryButton.style.display = 'block';
-  })
+  
+  newQuestion.innerHTML = `
+    <div id="showResult">
+      <p>Correct: ${correct}</p>
+      <p>Wrong: ${wrong}</p>
+      <p>${result}</p>
+    </div>
+  `;
+
+  resultButton.style.display = 'none';
+  retryButton.style.display = 'block';
 }
 
 nextButton.addEventListener('click', () => {
+  nextIndex++;
+  if(nextIndex >= questions.length){
+    nextIndex = questions.length;
+    return;
+  }
   renderQuestion();
+});
+
+resultButton.addEventListener('click', () => {
+  renderResult();
 });
 
 retryButton.addEventListener('click', () => {
