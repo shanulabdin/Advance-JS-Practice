@@ -1,14 +1,15 @@
 const getCityName = document.querySelector('.getCityName');
 const getWeatherBtn = document.querySelector('.getWeatherBtn');
-const cityName = document.querySelector('#cityName');
-const weatherNow = document.querySelector('.weatherNow');
-const weekday = document.querySelectorAll('.weekday');
+
+const feelsLike = document.querySelector('#feelsLike');
+const weatherDes = document.querySelector('#weatherDes');
+const tempNow = document.querySelector('#tempNow');
 
 
 const API_KEY = `2169d28cbb315f3b55d6b51417fbcd38`;
 let lat = 24.8607;
 let lon = 67.0011;
-let city = '';
+let city = 'Karchi';
 const limit = 5;
 
 async function getCityCoor() {
@@ -32,7 +33,10 @@ async function getWeather() {
   const res = await fetch(url);
   const data = await res.json();
 
-  console.log(data);
+  cityName.textContent = data.name;
+  feelsLike.textContent = data.main.feels_like;
+  weatherDes.textContent = data.weather[0].main;
+  tempNow.textContent = data.main.temp;
 }
 
 getWeatherBtn.addEventListener('click', async function() {

@@ -14,11 +14,13 @@
       color: white;
       font-family: Arial, Helvetica, sans-serif;
       display: flex;
-      justify-content: center;
       align-items: center;
       flex-direction: column;
       text-align: center;
       height: 95vh;
+    }
+    .getInput{
+      margin-top: 100px;
     }
     .getInput input, 
     .getInput button{
@@ -41,20 +43,16 @@
     .city{
       font-size: 40px;
       font-weight: 700;
-      margin: 20px 10px;
+      margin: 60px 10px;
     }
-    .weatherNow{
-      font-size: 40px;
-      margin: 40px 10px;
-    }
-    .weatherWeek{
+    .description{
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 20px;
     }
-    .weatherWeek div{
-      margin: 20px 20px;
+    .description div{
+      margin: 0px 20px;
     }
   </style>
   <title>Weathering with you</title>
@@ -73,39 +71,20 @@
       <p id="cityName">Karachi</p>
     </div>
 
-    <div class="weatherNow">
-      <p>22</p>
-      <p>Now</p>
-    </div>
+    <div class="description">
+      <div>
+        <p>Temp</p>
+        <p id="tempNow"></p>
+      </div>
+      
+      <div>
+        <p>Feels Like</p>
+        <p id="feelsLike"></p>
+      </div>
 
-    <div class="weatherWeek">
-      <div class="weekday" id="monday">
-        <p>27</p>
-        <p>Mon</p>
-      </div>
-      <div class="weekday" id="tuesday">
-        <p>28</p>
-        <p>Tue</p>
-      </div>
-      <div class="weekday" id="wednesday">
-        <p>27</p>
-        <p>Wed</p>
-      </div>
-      <div class="weekday" id="thursday">
-        <p>28</p>
-        <p>Thu</p>
-      </div>
-      <div class="weekday" id="friday">
-        <p>27</p>
-        <p>Fri</p>
-      </div>
-      <div class="weekday" id="saturday">
-        <p>29</p>
-        <p>Sat</p>
-      </div>
-      <div class="weekday" id="sunday">
-        <p>28</p>
-        <p>Sun</p>
+      <div>
+        <p>Weather</p>
+        <p id="weatherDes"></p>
       </div>
     </div>
   </div>
