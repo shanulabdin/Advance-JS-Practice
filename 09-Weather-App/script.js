@@ -11,11 +11,21 @@ const weatherDes = document.querySelector('#weatherDes');
 
 
 const API_KEY = `2169d28cbb315f3b55d6b51417fbcd38`;
-let city = 'Karchi';
+let city = 'Karachi';
+getWeather();
 
 async function getWeather() {
-  const underInput = getCityName.value.trim();
-  city = underInput.charAt(0).toUpperCase() + underInput.slice(1);
+  const userInput = getCityName.value.trim();
+  
+  if(userInput === ''){
+    error.textContent = 'Please Enter a City Name.';
+    showError.style.display = 'block';
+    showWeather.style.display = 'none';
+    return;
+  } else {
+    city = userInput.charAt(0).toUpperCase() + userInput.slice(1);
+  }
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
 
   
@@ -23,10 +33,17 @@ async function getWeather() {
   try{
     const res = await fetch(url);
     const data = await res.json();
-    
-    renderWeather(data);
+
+    if(data.cod == 404){
+      error.textContent = 'City not found.';
+      showError.style.display = 'block';
+      showWeather.style.display = 'none';
+      return;
+    } else if (res.ok){
+      renderWeather(data);
+    }
   } catch (err){
-    error.innerHTML = err;
+    error.textContent = err.message;
     showError.style.display = 'block';
     showWeather.style.display = 'none';
   } finally {
@@ -40,7 +57,7 @@ function renderWeather(data){
 
   cityName.textContent = data.name;
   feelsLike.textContent = data.main.feels_like;
-  weatherDes.textContent = data.weather[0].main;
+  weatherDes.textContent = data.weather[0].description;
   tempNow.textContent = data.main.temp;
 }
 
