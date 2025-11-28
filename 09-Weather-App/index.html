@@ -54,6 +54,18 @@
     .description div{
       margin: 0px 20px;
     }
+    .description .stats-heading{
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .description .stats{
+      font-size: 30px;
+      margin-top: 20px;
+    }
+
+    .showWeather{
+      display: none;
+    }
   </style>
   <title>Weathering with you</title>
 </head>
@@ -68,23 +80,23 @@
 
   <div class="showWeather">
     <div class="city">
-      <p id="cityName">Karachi</p>
+      <p id="cityName">City</p>
     </div>
 
     <div class="description">
       <div>
-        <p>Temp</p>
-        <p id="tempNow"></p>
+        <p class="stats-heading">Temp</p>
+        <p class="stats" id="tempNow">24</p>
       </div>
       
       <div>
-        <p>Feels Like</p>
-        <p id="feelsLike"></p>
+        <p class="stats-heading">Feels Like</p>
+        <p class="stats" id="feelsLike">24.5</p>
       </div>
 
       <div>
-        <p>Weather</p>
-        <p id="weatherDes"></p>
+        <p class="stats-heading">Weather</p>
+        <p class="stats" id="weatherDes">Haze</p>
       </div>
     </div>
   </div>

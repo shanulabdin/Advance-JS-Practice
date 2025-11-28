@@ -1,5 +1,6 @@
 const getCityName = document.querySelector('.getCityName');
 const getWeatherBtn = document.querySelector('.getWeatherBtn');
+const showWeather = document.querySelector('.showWeather');
 
 const feelsLike = document.querySelector('#feelsLike');
 const weatherDes = document.querySelector('#weatherDes');
@@ -32,6 +33,12 @@ async function getWeather() {
 
   const res = await fetch(url);
   const data = await res.json();
+
+  renderWeather(data);
+}
+
+function renderWeather(data){
+  showWeather.style.display = 'block';
 
   cityName.textContent = data.name;
   feelsLike.textContent = data.main.feels_like;
