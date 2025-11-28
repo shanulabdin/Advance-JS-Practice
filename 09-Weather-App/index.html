@@ -20,6 +20,24 @@
       text-align: center;
       height: 95vh;
     }
+    .getInput input, 
+    .getInput button{
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+    .getWeatherBtn{
+      cursor: pointer;
+    }
+    .getWeatherBtn:disabled{
+      color: black;
+    }
+    .getWeatherBtn:hover{
+      background-color: rgb(190, 190, 190);
+    }
+    .getWeatherBtn:active{
+      background-color: rgb(150, 150, 150);
+    }
     .city{
       font-size: 40px;
       font-weight: 700;
@@ -43,7 +61,14 @@
 </head>
 <body>
   
-  <div>
+  <div class="getInput">
+    <input type="text" class="getCityName" placeholder="City Name">  
+    <button class="getWeatherBtn">
+      Get Weather
+    </button>
+  </div>
+
+  <div class="showWeather">
     <div class="city">
       <p id="cityName">Karachi</p>
     </div>
@@ -84,5 +109,6 @@
       </div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
