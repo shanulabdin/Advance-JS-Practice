@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: gray;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      height: 95vh;
+    }
+    .city{
+      font-size: 40px;
+      font-weight: 700;
+      margin: 20px 10px;
+    }
+    .weatherNow{
+      font-size: 40px;
+      margin: 40px 10px;
+    }
+    .weatherWeek{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+    }
+    .weatherWeek div{
+      margin: 20px 20px;
+    }
+  </style>
+  <title>Weathering with you</title>
+</head>
+<body>
+  
+  <div>
+    <div class="city">
+      <p id="cityName">Karachi</p>
+    </div>
+
+    <div class="weatherNow">
+      <p>22</p>
+      <p>Now</p>
+    </div>
+
+    <div class="weatherWeek">
+      <div class="weekday" id="monday">
+        <p>27</p>
+        <p>Mon</p>
+      </div>
+      <div class="weekday" id="tuesday">
+        <p>28</p>
+        <p>Tue</p>
+      </div>
+      <div class="weekday" id="wednesday">
+        <p>27</p>
+        <p>Wed</p>
+      </div>
+      <div class="weekday" id="thursday">
+        <p>28</p>
+        <p>Thu</p>
+      </div>
+      <div class="weekday" id="friday">
+        <p>27</p>
+        <p>Fri</p>
+      </div>
+      <div class="weekday" id="saturday">
+        <p>29</p>
+        <p>Sat</p>
+      </div>
+      <div class="weekday" id="sunday">
+        <p>28</p>
+        <p>Sun</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
