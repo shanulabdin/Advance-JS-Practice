@@ -25,9 +25,23 @@ async function getCityCoor() {
   getCityName.value = '';
   getCityName.focus();
 }
-getWeatherBtn.addEventListener('click', getCityCoor);
-getCityName.addEventListener('keydown', (e) => {
+
+async function getWeather() {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  console.log(data);
+}
+
+getWeatherBtn.addEventListener('click', async function() {
+  await getCityCoor();
+  await getWeather();
+});
+getCityName.addEventListener('keydown', async function(e){
   if(e.key === 'Enter'){
-    getCityCoor();
+    await getCityCoor();
+    await getWeather();
   }
 });
