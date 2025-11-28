@@ -9,7 +9,7 @@ const tempNow = document.querySelector('#tempNow');
 const feelsLike = document.querySelector('#feelsLike');
 const weatherDes = document.querySelector('#weatherDes');
 
-
+// ADD A NEW API_KEY BEFORE RUNNING THE APP
 const API_KEY = `2169d28cbb315f3b55d6b51417fbcd38`;
 let city = 'Karachi';
 getWeather();
@@ -31,6 +31,8 @@ async function getWeather() {
   
   showError.style.display = 'none';
   try{
+    getWeatherBtn.disabled = true;
+
     const res = await fetch(url);
     const data = await res.json();
 
@@ -42,13 +44,14 @@ async function getWeather() {
     } else if (res.ok){
       renderWeather(data);
     }
+    getCityName.value = '';
   } catch (err){
     error.textContent = err.message;
     showError.style.display = 'block';
     showWeather.style.display = 'none';
   } finally {
-    getCityName.value = '';
     getCityName.focus();
+    getWeatherBtn.disabled = false;
   }
 }
 
